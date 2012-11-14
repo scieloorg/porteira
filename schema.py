@@ -46,7 +46,7 @@ class Schema(object):
         errors = []
         try:
             """
-            Trying to validate the parsing and schema validation
+            Trying to validate the parsing and schema
             """
             parsed_xml = etree.parse(StringIO(xml_input))
             if self.xmlschema.assertValid(parsed_xml):
