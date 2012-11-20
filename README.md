@@ -72,6 +72,6 @@ Invalid XML:
 >sch = Schema(xsd)
 >sch.serialize(dict_obj)
 >sch.get_validation_errors(invalid_xml)
->
+>[(u'PARSER', 1, 53, u'FATAL', u'ERR_TAG_NAME_MISMATCH', u'Opening and ending tag mismatch: a line 1 and unparseable')]
 </pre>
 </code>
