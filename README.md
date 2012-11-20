@@ -45,3 +45,33 @@ Serialize dict tom XML, method: <b>Schema.serialize()</b>
 >&lt;?xml version="1.0" encoding="utf-8"?&gt;\n&lt;a&gt;&lt;c&gt;2&lt;/c&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;
 </code>
 </pre>
+
+Get_validation_errors return a list of syntax and schema errors otherwise empty list, method: <b>Schema.get_validation_errors()</b>
+
+Valid XML:
+<pre>
+<code>
+>xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
+>xsd = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;&lt;xs:element name="root"&gt;&lt;xs:complexType&gt;&lt;xs:sequence&gt;&lt;xs:element ref="a"/&gt;&lt;xs:element ref="b"/&gt;&lt;/xs:sequence&gt;&lt;/xs:complexType&gt;&lt;/xs:element&gt;&lt;xs:element name="a" type="xs:NCName"/&gt;&lt;xs:element name="b" type="xs:NCName"/&gt;
+&lt;/xs:schema&gt;'
+>from schema import Schema
+>sch = Schema(xsd)
+>sch.serialize(dict_obj)
+>sch.get_validation_errors(xml)
+>[]
+</pre>
+</code>
+
+Invalid XML:
+<pre>
+<code>
+>invalid_xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
+>xsd = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;&lt;xs:element name="root"&gt;&lt;xs:complexType&gt;&lt;xs:sequence&gt;&lt;xs:element ref="a"/&gt;&lt;xs:element ref="b"/&gt;&lt;/xs:sequence&gt;&lt;/xs:complexType&gt;&lt;/xs:element&gt;&lt;xs:element name="a" type="xs:NCName"/&gt;&lt;xs:element name="b" type="xs:NCName"/&gt;
+&lt;/xs:schema&gt;'
+>from schema import Schema
+>sch = Schema(xsd)
+>sch.serialize(dict_obj)
+>sch.get_validation_errors(invalid_xml)
+>
+</pre>
+</code>
