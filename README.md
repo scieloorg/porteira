@@ -76,7 +76,7 @@ Invalid XML:
 </pre>
 </code>
 
-<b>Error list format returned from this method:</b>
+<b>Errors format returned from this method:</b>
 
 Output Format:
 [(DOMIAN, LINE, COLUMN, LEVEL, TYPE_NAME, MESSAGE),]
