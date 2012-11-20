@@ -1,8 +1,6 @@
 Porteira
 ========
-.. image:: https://secure.travis-ci.org/scieloorg/porteira.png?branch=master
-`See Build details <http://travis-ci.org/#!/scieloorg/porteira>`_
-
+[![Build Status](https://secure.travis-ci.org/scieloorg/porteira.png?branch=master)](https://travis-ci.org/scieloorg/porteira)
 
 Overview
 ========
