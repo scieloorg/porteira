@@ -35,7 +35,7 @@ Deserialized XML to dict object, method: <b>Schema.deserialize() return dict</b>
 </code>
 </pre>
 
-Serialize dict tom XML, method: <b>Schema.serialize() return XML</b>
+Serialize dict tom XML, method: <b>Schema.serialize() return XML</b>:
 <pre>
 <code>
 >dict_obj = {'a': {'b': '1', 'c': '2'}}
