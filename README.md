@@ -9,7 +9,7 @@ API responsible for validating SciELO structures and generate python structures
 API Usage
 ---------
 
-Validating xml against an xsd, method: <b>Schema.validate()</b>:
+Validating xml against an xsd, method: <b>Schema.validate() return boolean</b>:
 <pre>
 <code>
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
@@ -22,7 +22,7 @@ Validating xml against an xsd, method: <b>Schema.validate()</b>:
 </code>
 </pre>
 
-Deserialized XML to dict object, method: <b>Schema.deserialize()</b>
+Deserialized XML to dict object, method: <b>Schema.deserialize() return dict</b>:
 <pre>
 <code>
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
@@ -35,7 +35,7 @@ Deserialized XML to dict object, method: <b>Schema.deserialize()</b>
 </code>
 </pre>
 
-Serialize dict tom XML, method: <b>Schema.serialize()</b>
+Serialize dict tom XML, method: <b>Schema.serialize() return XML</b>
 <pre>
 <code>
 >dict_obj = {'a': {'b': '1', 'c': '2'}}
@@ -46,7 +46,7 @@ Serialize dict tom XML, method: <b>Schema.serialize()</b>
 </code>
 </pre>
 
-Get_validation_errors return a list of syntax and schema errors otherwise empty list, method: <b>Schema.get_validation_errors()</b>
+Get_validation_errors return a list of syntax and schema errors otherwise empty list, method: <b>Schema.get_validation_errors() return list</b>:
 
 Valid XML:
 <pre>
@@ -75,3 +75,13 @@ Invalid XML:
 >[(u'PARSER', 1, 53, u'FATAL', u'ERR_TAG_NAME_MISMATCH', u'Opening and ending tag mismatch: a line 1 and unparseable')]
 </pre>
 </code>
+
+<b>Error list format returned from this method:</b>
+
+Output Format:
+[(DOMIAN, LINE, COLUMN, LEVEL, TYPE_NAME, MESSAGE),]
+
+Ex.: [(PARSER, 3, 51, FATAL, ERR_TAG_NAME_MISMATCH, Opening and
+    ending tag mismatch: statpage line 3 and startpage),
+    (SCHEMASV, 2, 0, ERROR, SCHEMAV_CVC_ELT_1, Element 'wizard':
+    No matching global declaration available for the validation root)]
