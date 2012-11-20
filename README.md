@@ -1,5 +1,6 @@
 Porteira
 ========
+https://secure.travis-ci.org/scieloorg/porteira.png?branch=master
 
 Overview
 ========
