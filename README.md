@@ -42,6 +42,6 @@ Serialize dict tom XML, method: <b>Schema.serialize()</b>
 >from schema import Schema
 >sch = Schema(xsd)
 >sch.serialize(dict_obj)
->u'<?xml version="1.0" encoding="utf-8"?>\n<a><c>2</c><b>1</b></a>'
+>'<?xml version="1.0" encoding="utf-8"?>\n<a><c>2</c><b>1</b></a>'
 </code>
 </pre>
