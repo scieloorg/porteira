@@ -22,7 +22,7 @@ Validating xml against an xsd, method: <b>Schema.validate()</b>:
 </code>
 </pre>
 
-Deserialized XML to dict object, method: <b>Schema.deserialized()</b>
+Deserialized XML to dict object, method: <b>Schema.deserialize()</b>
 <pre>
 <code>
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
@@ -30,7 +30,18 @@ Deserialized XML to dict object, method: <b>Schema.deserialized()</b>
 &lt;/xs:schema&gt;'
 >from schema import Schema
 >sch = Schema(xsd)
->sch.deserialized(xml)
+>sch.deserialize(xml)
 >OrderedDict([(u'root', OrderedDict([(u'a', u'bla0'), (u'b', u'bla1')]))])
+</code>
+</pre>
+
+Serialize dict tom XML, method: <b>Schema.serialize()</b>
+<pre>
+<code>
+>dict_obj = {'a': {'b': '1', 'c': '2'}}
+>from schema import Schema
+>sch = Schema(xsd)
+>sch.serialize(dict_obj)
+>u'<?xml version="1.0" encoding="utf-8"?>\n<a><c>2</c><b>1</b></a>'
 </code>
 </pre>
