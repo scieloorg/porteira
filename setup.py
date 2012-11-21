@@ -4,9 +4,8 @@ import os
 here = os.path.abspath(os.path.dirname(__file__))
 try:
     README = open(os.path.join(here, 'README.rst')).read()
-    LICENSE = open(os.path.join(here, 'LICENSE')).read()
 except IOError:
-    README = CHANGES = ''
+    README = ''
 
 
 setup(name='porteira',
@@ -29,7 +28,7 @@ setup(name='porteira',
       maintainer_email='scielo-dev@googlegroups.com',
       url='https://github.com/scieloorg/porteira',
       download_url='https://github.com/scieloorg/porteira/archive/master.zip',
-      license=LICENSE,
+      license='LICENSE.txt',
       test_suite='test',
       tests_require=['unittest'],
       platforms='Windows, Unix and MacOS',
