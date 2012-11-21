@@ -2,7 +2,7 @@
 
 import unittest
 import test_asserts
-from schema import Schema
+from porteira import Schema
 
 
 class SchemaTestCase(unittest.TestCase):
@@ -43,13 +43,13 @@ class SchemaTestCase(unittest.TestCase):
         self.assertEqual(des, dict())
 
     def test_get_validation_errors_without_XSD(self):
-        from schema import CannotValidate
+        from porteira import CannotValidate
         sch = Schema()
         self.assertRaises(CannotValidate,
             lambda: sch.get_validation_errors(self.xml_string))
 
     def test_validate_without_XSD(self):
-        from schema import CannotValidate
+        from porteira import CannotValidate
         sch = Schema()
         self.assertRaises(CannotValidate,
             lambda: sch.validate(self.xml_string))
