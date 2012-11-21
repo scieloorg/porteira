@@ -9,7 +9,7 @@ API responsible for validating SciELO structures and generate python structures
 API Usage
 ---------
 
-Validating xml against an xsd, method: <b>Schema.validate() return boolean</b>:
+Validating xml against an xsd, method: <b>Schema.validate(xml) return boolean</b>:
 <pre>
 <code>
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
@@ -22,7 +22,7 @@ Validating xml against an xsd, method: <b>Schema.validate() return boolean</b>:
 </code>
 </pre>
 
-Deserialized XML to dict object, method: <b>Schema.deserialize() return dict</b>:
+Deserialized XML to dict object, method: <b>Schema.deserialize(xml) return dict</b>:
 <pre>
 <code>
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
@@ -35,7 +35,7 @@ Deserialized XML to dict object, method: <b>Schema.deserialize() return dict</b>
 </code>
 </pre>
 
-Serialize dict tom XML, method: <b>Schema.serialize() return XML</b>:
+Serialize dict to XML, method: <b>Schema.serialize(dict) return XML</b>:
 <pre>
 <code>
 >dict_obj = {'a': {'b': '1', 'c': '2'}}
@@ -46,7 +46,7 @@ Serialize dict tom XML, method: <b>Schema.serialize() return XML</b>:
 </code>
 </pre>
 
-Get_validation_errors return a list of syntax and schema errors otherwise empty list, method: <b>Schema.get_validation_errors() return list</b>:
+Get_validation_errors return a list of syntax and schema errors otherwise empty list, method: <b>Schema.get_validation_errors(xml) return list</b>:
 
 Valid XML:
 <pre>
