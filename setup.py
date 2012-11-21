@@ -3,7 +3,8 @@ import os
 
 here = os.path.abspath(os.path.dirname(__file__))
 try:
-    README = open(os.path.join(here, 'README.md')).read()
+    README = open(os.path.join(here, 'README.rst')).read()
+    LICENSE = open(os.path.join(here, 'LICENSE')).read()
 except IOError:
     README = CHANGES = ''
 
@@ -21,12 +22,15 @@ setup(name='porteira',
           'Programming Language :: Python',
           'Topic :: Text Processing :: Markup :: XML',
         ],
-      keywords='Porteira API',
+      keywords='xml xsd schema validation lxml xmltodict porteira',
       author='SciELO',
       author_email='scielo-dev@googlegroups.com',
+      maintainer='SciELO Team',
+      maintainer_email='scielo-dev@googlegroups.com',
       url='https://github.com/scieloorg/porteira',
-      download_url='',
-      license='',
+      download_url='https://github.com/scieloorg/porteira/archive/master.zip',
+      license=LICENSE,
       test_suite='test',
       tests_require=['unittest'],
+      platforms='Windows, Unix and MacOS',
     )
