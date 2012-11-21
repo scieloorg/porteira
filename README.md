@@ -4,7 +4,7 @@ Porteira
 
 Overview
 --------
-API responsible for validating SciELO structures and generate python structures
+API responsible for validating XML structures and generate python structures
 
 API Usage
 ---------
