@@ -9,7 +9,7 @@ API responsible for validating SciELO structures and generate python structures
 API Usage
 ---------
 
-The instance of porteira.Schema(xsd) parses and validates the time of construction instance:
+The instance of <b>porteira.Schema(xsd)</b> parses and validates the time of construction instance:
 <pre>
 <code>
 >from porteira import Schema
