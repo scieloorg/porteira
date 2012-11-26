@@ -12,7 +12,7 @@ API Usage
 The instance of <b>porteira.Schema(xsd)</b> parses and validates the time of construction instance:
 <pre>
 <code>
->from porteira import Schema
+>from porteira.porteira import Schema
 >sch = Schema(xsd)
 </code>
 </pre>
@@ -23,7 +23,7 @@ Validating xml against an xsd, method: <b>Schema.validate(xml) return boolean</b
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
 >xsd = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;&lt;xs:element name="root"&gt;&lt;xs:complexType&gt;&lt;xs:sequence&gt;&lt;xs:element ref="a"/&gt;&lt;xs:element ref="b"/&gt;&lt;/xs:sequence&gt;&lt;/xs:complexType&gt;&lt;/xs:element&gt;&lt;xs:element name="a" type="xs:NCName"/&gt;&lt;xs:element name="b" type="xs:NCName"/&gt;
 &lt;/xs:schema&gt;'
->from porteira import Schema
+>from porteira.porteira import Schema
 >sch = Schema(xsd)
 >sch.validate(xml)
 >True
@@ -36,7 +36,7 @@ Deserialized XML to dict object, method: <b>Schema.deserialize(xml) return dict<
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
 >xsd = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;&lt;xs:element name="root"&gt;&lt;xs:complexType&gt;&lt;xs:sequence&gt;&lt;xs:element ref="a"/&gt;&lt;xs:element ref="b"/&gt;&lt;/xs:sequence&gt;&lt;/xs:complexType&gt;&lt;/xs:element&gt;&lt;xs:element name="a" type="xs:NCName"/&gt;&lt;xs:element name="b" type="xs:NCName"/&gt;
 &lt;/xs:schema&gt;'
->from porteira import Schema
+>from porteira.porteira import Schema
 >sch = Schema(xsd)
 >sch.deserialize(xml)
 >OrderedDict([(u'root', OrderedDict([(u'a', u'bla0'), (u'b', u'bla1')]))])
@@ -47,7 +47,7 @@ Serialize dict to XML, method: <b>Schema.serialize(dict) return XML</b>:
 <pre>
 <code>
 >dict_obj = {'a': {'b': '1', 'c': '2'}}
->from porteira import Schema
+>from porteira.porteira import Schema
 >sch = Schema(xsd)
 >sch.serialize(dict_obj)
 >&lt;?xml version="1.0" encoding="utf-8"?&gt;\n&lt;a&gt;&lt;c&gt;2&lt;/c&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;
@@ -62,7 +62,7 @@ Valid XML:
 >xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
 >xsd = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;&lt;xs:element name="root"&gt;&lt;xs:complexType&gt;&lt;xs:sequence&gt;&lt;xs:element ref="a"/&gt;&lt;xs:element ref="b"/&gt;&lt;/xs:sequence&gt;&lt;/xs:complexType&gt;&lt;/xs:element&gt;&lt;xs:element name="a" type="xs:NCName"/&gt;&lt;xs:element name="b" type="xs:NCName"/&gt;
 &lt;/xs:schema&gt;'
->from porteira import Schema
+>from porteira.porteira import Schema
 >sch = Schema(xsd)
 >sch.serialize(dict_obj)
 >sch.get_validation_errors(xml)
@@ -76,7 +76,7 @@ Invalid XML:
 >invalid_xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;root&gt;&lt;a&gt;bla0&lt;/a&gt;&lt;b&gt;bla1&lt;/b&gt;&lt;/root&gt;'
 >xsd = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;&lt;xs:element name="root"&gt;&lt;xs:complexType&gt;&lt;xs:sequence&gt;&lt;xs:element ref="a"/&gt;&lt;xs:element ref="b"/&gt;&lt;/xs:sequence&gt;&lt;/xs:complexType&gt;&lt;/xs:element&gt;&lt;xs:element name="a" type="xs:NCName"/&gt;&lt;xs:element name="b" type="xs:NCName"/&gt;
 &lt;/xs:schema&gt;'
->from porteira import Schema
+>from porteira.porteira import Schema
 >sch = Schema(xsd)
 >sch.serialize(dict_obj)
 >sch.get_validation_errors(invalid_xml)
