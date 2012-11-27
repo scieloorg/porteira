@@ -51,8 +51,6 @@ class Schema(object):
                     return errors
         except (etree.DocumentInvalid, etree.XMLSyntaxError), e:
             errors = self._handle_errors(e.error_log)
-        except AttributeError:
-            raise CannotValidate('Set XSD to validate the XML')
         return errors
 
     def validate(self, xml_input):

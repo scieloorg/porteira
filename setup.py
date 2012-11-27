@@ -9,7 +9,7 @@ except IOError:
 
 
 setup(name='porteira',
-      version='0.1',
+      version='0.2',
       description='API responsible for validating XML structures and generate python structures.',
       packages=find_packages(),
       include_package_data=True,
