@@ -96,7 +96,9 @@ Ex.: [(PARSER, 3, 51, FATAL, ERR_TAG_NAME_MISMATCH, Opening and
     
 How to Install?
 =================
-
+<pre>
 <code>
-$ pip install xmltodict
+<code>
+>$ pip install porteira
 </code>
+</pre>
