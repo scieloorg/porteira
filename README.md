@@ -99,4 +99,4 @@ Ex.: [(PARSER, 3, 51, FATAL, ERR_TAG_NAME_MISMATCH, Opening and
 <code>
 $ pip install xmltodict
 </code>
-<pre>
+</pre>
