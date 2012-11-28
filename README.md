@@ -95,6 +95,7 @@ Ex.: [(PARSER, 3, 51, FATAL, ERR_TAG_NAME_MISMATCH, Opening and
     No matching global declaration available for the validation root)]
     
 <b>How to Install?</b>
+
 <code>
 $ pip install xmltodict
 </code>
