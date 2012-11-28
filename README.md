@@ -98,7 +98,6 @@ How to Install?
 =================
 <pre>
 <code>
-<code>
 >$ pip install porteira
 </code>
 </pre>
