@@ -45,16 +45,12 @@ class Schema(object):
         """
         errors = []
         try:
-            """
-            Trying to validate the parsing and schema
-            """
             parsed_xml = etree.parse(StringIO(xml_input))
-            if self.xmlschema.assertValid(parsed_xml):
-                return errors
+            if hasattr(self, 'xmlschema'):
+                if self.xmlschema.assertValid(parsed_xml):
+                    return errors
         except (etree.DocumentInvalid, etree.XMLSyntaxError), e:
             errors = self._handle_errors(e.error_log)
-        except AttributeError:
-            raise CannotValidate('Set XSD to validate the XML')
         return errors
 
     def validate(self, xml_input):
