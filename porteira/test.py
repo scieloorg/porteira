@@ -34,6 +34,12 @@ class SchemaTestCase(unittest.TestCase):
         self.assertIsInstance(des, dict)
         self.assertIn('wizard', des)
 
+    def test_deserialize_without_xsd(self):
+        sch = Schema()
+        des = sch.deserialize(self.xml_string)
+        self.assertIsInstance(des, dict)
+        self.assertIn('wizard', des)
+
     def test_serialize(self):
         sch = Schema()
         ser = sch.serialize(test_asserts.DICT_OBJ)
