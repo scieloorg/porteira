@@ -3,27 +3,30 @@
 DICT_OBJ = dict({'a': {'b': '1', 'c': '2'}})
 
 XSD = '''<?xml version="1.0" encoding="UTF-8"?>
-          <schema xmlns="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="http://www.example.org/wizard"
-            xmlns:tns="http://www.example.org/wizard"
-            elementFormDefault="qualified">
-            <complexType name="Wizard">
-              <sequence>
-                <element name="startpage" type="IDREF" />
-                <element name="name" type="string" />
-                <element name="welcometext" type="string" />
-                <element name="choicepage" type="tns:ChoicePage" />
-              </sequence>
-            </complexType>
-            <complexType name="ChoicePage">
-              <sequence>
-                <element name="title" type="string" />
-              </sequence>
-              <attribute name="id" type="ID" />
-            </complexType>
-            <element name="wizard" type="tns:Wizard" />
-          </schema>'''
-
+          <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.example.org/wizard" xmlns:wizard="http://www.example.org/wizard">
+            <xs:element name="wizard">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="wizard:startpage"/>
+                  <xs:element ref="wizard:name"/>
+                  <xs:element ref="wizard:welcometext"/>
+                  <xs:element ref="wizard:choicepage"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="startpage" type="xs:NCName"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="welcometext" type="xs:string"/>
+            <xs:element name="choicepage">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="wizard:title"/>
+                </xs:sequence>
+                <xs:attribute name="id" use="required" type="xs:NCName"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="title" type="xs:string"/>
+          </xs:schema>'''
 
 XML = '''<?xml version="1.0" encoding="UTF-8"?>
           <wizard xmlns="http://www.example.org/wizard">

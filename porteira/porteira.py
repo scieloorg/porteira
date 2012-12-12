@@ -17,8 +17,8 @@ class Schema(object):
         Parse the XSD
         """
         if xsd_input is not None:
-            xmlschema_doc = etree.parse(StringIO(xsd_input))
-            self.xmlschema = etree.XMLSchema(xmlschema_doc)
+            self.xsd_doc = etree.parse(self._handle_xml(xsd_input))
+            self.xmlschema = etree.XMLSchema(self.xsd_doc)
 
     def _handle_errors(self, errors_list):
         """
@@ -38,6 +38,15 @@ class Schema(object):
                 error.level_name, error.type_name, error.message))
         return errors
 
+    def _handle_xml(self, xml_input):
+        """
+        Handles the type of xml_input
+        """
+        if hasattr(xml_input, 'read'):
+            return xml_input
+        else:
+            return StringIO(xml_input)
+
     def get_validation_errors(self, xml_input):
         """
         This method returns a list of validation errors. If there are no errors
@@ -45,20 +54,20 @@ class Schema(object):
         """
         errors = []
         try:
-            parsed_xml = etree.parse(StringIO(xml_input))
-            if hasattr(self, 'xmlschema'):
-                if self.xmlschema.assertValid(parsed_xml):
-                    return errors
+            parsed_xml = etree.parse(self._handle_xml(xml_input))
+            self.xmlschema.assertValid(parsed_xml)
         except (etree.DocumentInvalid, etree.XMLSyntaxError), e:
             errors = self._handle_errors(e.error_log)
+        except AttributeError:
+            raise CannotValidate('Set XSD to validate the XML')
         return errors
 
     def validate(self, xml_input):
         """
-        This method validate the parsing and schema only return a boolean
+        This method validate the parsing and schema, return a boolean
         """
+        parsed_xml = etree.parse(self._handle_xml(xml_input))
         try:
-            parsed_xml = etree.parse(StringIO(xml_input))
             return self.xmlschema.validate(parsed_xml)
         except AttributeError:
             raise CannotValidate('Set XSD to validate the XML')
@@ -67,10 +76,7 @@ class Schema(object):
         """
         Convert XML to dict object
         """
-        if not self.get_validation_errors(xml_input):
-            return xmltodict.parse(xml_input, *args, **kwargs)
-        else:
-            return {}
+        return xmltodict.parse(xml_input, *args, **kwargs)
 
     def serialize(self, dict_input, **kwargs):
         """

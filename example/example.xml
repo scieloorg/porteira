@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard xmlns="http://www.example.org/wizard">
+<startpage>start</startpage>
+  <name>My Example Setup</name>
+  <welcometext>Welcome to this little demo application.</welcometext>
+  <choicepage id="start">
+  <title>Wizard Page One</title>
+</choicepage>
+</wizard>
