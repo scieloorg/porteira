@@ -33,7 +33,7 @@ setup(name='porteira',
       tests_require=['nose'],
       platforms='Windows, Unix and MacOS',
       install_requires=[
-        "xmltodict==0.3",
-        "lxml==3.0",
+        "xmltodict",
+        "lxml",
         ],
     )
