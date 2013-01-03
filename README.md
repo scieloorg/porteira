@@ -48,7 +48,7 @@ Serialize dict to XML, method: <b>Schema.serialize(dict) return XML</b>:
 <code>
 >dict_obj = {'a': {'b': '1', 'c': '2'}}
 >from porteira.porteira import Schema
->sch = Schema(xsd)
+>sch = Schema()
 >sch.serialize(dict_obj)
 >&lt;?xml version="1.0" encoding="utf-8"?&gt;\n&lt;a&gt;&lt;c&gt;2&lt;/c&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;
 </code>
