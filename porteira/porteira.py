@@ -78,7 +78,7 @@ class Schema(object):
         """
         return xmltodict.parse(xml_input, *args, **kwargs)
 
-    def serialize(self, dict_input, **kwargs):
+    def serialize(self, dict_input, *args, **kwargs):
         """
         Convert dict to XML
         """
